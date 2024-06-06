@@ -1,3 +1,4 @@
+from math import exp
 def precision(tp,fp):
     return tp/(tp+fp)
 
@@ -9,6 +10,14 @@ def f1_score(precision,recall):
 
 
 def validate(input):
+    '''
+    input: input
+    output:
+    - 0: integer negative
+    - (-1): integer positive
+    - 1: float
+    - 2: string or not a digit
+    '''
     try:
         int_val=int(input)
         if int_val<=0:
@@ -23,10 +32,11 @@ def validate(input):
             return 2 # input is not a digitnum  
         
 
-def sigmoid():
-    pass
+def sigmoid(x):
+    return 1/(1+exp(x))
 
-def relu():
-    pass
+def relu(x):
+    return x if x>0 else 0 
 
-def elu(): pass
+def elu(alpha,x):
+    return x if x>0 else alpha*(exp(x)-1)
