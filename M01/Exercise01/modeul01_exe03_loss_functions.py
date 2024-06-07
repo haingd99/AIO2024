@@ -27,4 +27,29 @@ bước này để các bạn không cần check tên hợp lệ)
 •Dùng abs() để tính trị tuyệt đối ví dụ abs(-3) sẽ trả về 3
 •Dùng math.sqrt() để tính căn bậc 2
 '''
-from utils import numval
+from utils import MAE, MSE,RMSE, numval
+import sys
+
+if __name__=="__main__":
+    loss_func_list=["MAE","MSE","RMSE"]
+    loss_func=input("Input the loss functions (MAE|MSE|RMSE):")
+    if loss_func.upper() not in loss_func_list:
+        print(f"{loss_func} loss function is not supported")
+        sys.exit()
+
+    sample=input("Input the sample:")
+    if numval(sample)!=-1:
+        print(f"The sample must be an integer.")
+        sys.exit()
+    
+    if loss_func.upper()=="MAE":
+        predicts, targets, loss = MAE(int(sample))
+        print(f"{loss_func} with {sample} sample, {predicts} predicts, {targets} targets, {loss} losses")
+
+    if loss_func.upper()=="MSE":
+        predicts, targets, loss = MSE(int(sample))
+        print(f"{loss_func} with {sample} sample, {predicts} predicts, {targets} targets, {loss} losses")
+
+    if loss_func.upper()=="RMSE":
+        predicts, targets, loss = RMSE(int(sample))
+        print(f"{loss_func} with {sample} sample, {predicts} predicts, {targets} targets, {loss} losses")

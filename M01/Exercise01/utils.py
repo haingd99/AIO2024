@@ -55,34 +55,47 @@ def MAE(n):
     if numval(n)!=-1:
         print(f"n must be an integer or positive number.")
         sys.exit()
-    target=random.uniform(0,len(n))
-    y_hat=random.uniform(0,len(n))
-    losses=[]
-    for i in range(len(n)):
-        loss=abs(target[i]-y_hat[i])/n
-        losses.append(loss)
-    return losses
+
+    targets=[]
+    y_hats=[]
+    losses=0
+    for i in range(n):
+        target=random.uniform(0,10)
+        y_hat=random.uniform(0,10)
+        targets.append(target)
+        y_hats.append(y_hat)
+        loss=abs(target-y_hat)/n
+        losses+=loss
+    return y_hats, targets, losses
 
 def MSE(n):
     if numval(n)!=-1:
         print(f"n must be an integer or positive number.")
         sys.exit()
-    target=random.uniform(0,len(n))
-    y_hat=random.uniform(0,len(n))
-    losses=[]
-    for i in range(len(n)):
-        loss=(target[i]-y_hat[i])**2/n
-        losses.append(loss)
-    return losses
+    targets=[]
+    y_hats=[]
+    losses=0
+    for i in range(n):
+        target=random.uniform(0,10)
+        y_hat=random.uniform(0,10)
+        targets.append(target)
+        y_hats.append(y_hat)
+        loss=(target-y_hat)**2/n
+        losses+=loss
+    return y_hats, targets, losses
 
 def RMSE(n):
     if numval(n)!=-1:
         print(f"n must be an integer or positive number.")
         sys.exit()
-    target=random.uniform(0,len(n))
-    y_hat=random.uniform(0,len(n))
-    losses=[]
-    for i in range(len(n)):
-        loss=sqrt((target[i]-y_hat[i])**2/n)
-        losses.append(loss)
-    return losses
+    targets=[]
+    y_hats=[]
+    losses=0
+    for i in range(n):
+        target=random.uniform(0,10)
+        y_hat=random.uniform(0,10)
+        targets.append(target)
+        y_hats.append(y_hat)
+        loss=(target-y_hat)**2/n
+        losses=+loss
+    return y_hats, targets, sqrt(losses)
