@@ -4,6 +4,7 @@ The private functions will be built on seperate program.
 '''
 
 from math import exp, sqrt
+
 from numpy import random
 import sys
 
@@ -31,9 +32,9 @@ def numval(input):
     try:
         int_val=int(input)
         if int_val<=0:
-            return 0 # input is an integer < 0
+            return 0 # input is an integer <= 0
         else:
-            return -1
+            return -1 # input is an integer > 0
     except ValueError as ve:
         try:
             float_val=float(input)            
@@ -102,48 +103,68 @@ def RMSE(n):
 
 
 def factorial(n):
-    
-    if numval(n)==-1:
-        if n==0: 
-            return 1
-        else:
-            for i in range(n):
-                f*=i
-            return f
+    """
+    Calculate the factorial of n, n is an integer
+    """
+    if n < 0:
+        raise ValueError("Factorial is not defined for negative numbers.")
+    elif n == 0 or n == 1:
+        return 1
     else:
-        print(f"{n} is not an integer.")
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
 
 
 def sin(n,x=3.14):
-    if numval(n)==-1:
-        for i in range(int(n)):
-            s+=x-(-1**i)*x**(2*i+1)/factorial(2*i+1)
-        return s
-    else:
-        print(f"{n} is not an integer.")   
-
-def cos(n,x=3.14):
     s=0
     if numval(n)==-1:
-        for i in range(n):
-            s+=1-(-1**i)*x**(2*i)/factorial(2*i)
+        for i in range(int(n)):
+            coe = (-1)**i
+            num = x**(2*i+1)
+            dem = factorial(2*i+1)
+            term = coe*(num/dem)
+            s += term
         return s
     else:
         print(f"{n} is not an integer.")   
 
-def sinh(n,x=3.14):
+def cos(x,n):
+    s=0
     if numval(n)==-1:
-        for i in range(n):
-            s+=x+x**(2*i+1)/factorial(2*i+1)
+        for i in range(int(n)):
+            coe = (-1)**i
+            num = x**(2*i)
+            dem = factorial(2*i)
+            term = coe*(num/dem)
+            s += term
+
+        return s
+    else:
+        print(f"{n} is not an integer.")   
+
+def sinh(x,n):
+    s=0
+    if numval(n)==-1:
+        for i in range(int(n)):
+            num = x**(2*i+1)
+            dem = factorial(2*i+1)
+            term = num/dem
+            s += term
         return s
     else:
         print(f"{n} is not an integer.")   
 
 
-def cosh(n,x=3.14):
+def cosh(x,n):
+    s=0
     if numval(n)==-1:
-        for i in range(n):
-            s+=1+x**(2*i)/factorial(2*i)
+        for i in range(int(n)):
+            num = x**(2*i)
+            dem = factorial(2*i)
+            term = num/dem
+            s += term
         return s
     else:
         print(f"{n} is not an integer.")   
