@@ -1,4 +1,13 @@
-from math import exp
+'''
+This lib containt all the share functions support to main program.
+The private functions will be built on seperate program.
+'''
+
+from math import exp, sqrt
+from numpy import random
+import sys
+
+
 def precision(tp,fp):
     return tp/(tp+fp)
 
@@ -9,8 +18,9 @@ def f1_score(precision,recall):
     return 2*(precision*recall)/(precision+recall)
 
 
-def validate(input):
+def numval(input):
     '''
+    Function: validate an input is a number and which type of object.
     input: input
     output:
     - 0: integer negative
@@ -40,3 +50,39 @@ def relu(x):
 
 def elu(alpha,x):
     return x if x>0 else alpha*(exp(x)-1)
+
+def MAE(n):
+    if numval(n)!=-1:
+        print(f"n must be an integer or positive number.")
+        sys.exit()
+    target=random.uniform(0,len(n))
+    y_hat=random.uniform(0,len(n))
+    losses=[]
+    for i in range(len(n)):
+        loss=abs(target[i]-y_hat[i])/n
+        losses.append(loss)
+    return losses
+
+def MSE(n):
+    if numval(n)!=-1:
+        print(f"n must be an integer or positive number.")
+        sys.exit()
+    target=random.uniform(0,len(n))
+    y_hat=random.uniform(0,len(n))
+    losses=[]
+    for i in range(len(n)):
+        loss=(target[i]-y_hat[i])**2/n
+        losses.append(loss)
+    return losses
+
+def RMSE(n):
+    if numval(n)!=-1:
+        print(f"n must be an integer or positive number.")
+        sys.exit()
+    target=random.uniform(0,len(n))
+    y_hat=random.uniform(0,len(n))
+    losses=[]
+    for i in range(len(n)):
+        loss=sqrt((target[i]-y_hat[i])**2/n)
+        losses.append(loss)
+    return losses
