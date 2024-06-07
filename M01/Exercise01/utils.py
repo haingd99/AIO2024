@@ -99,3 +99,51 @@ def RMSE(n):
         loss=(target-y_hat)**2/n
         losses=+loss
     return y_hats, targets, sqrt(losses)
+
+
+def factorial(n):
+    
+    if numval(n)==-1:
+        if n==0: 
+            return 1
+        else:
+            for i in range(n):
+                f*=i
+            return f
+    else:
+        print(f"{n} is not an integer.")
+
+
+def sin(n,x=3.14):
+    if numval(n)==-1:
+        for i in range(int(n)):
+            s+=x-(-1**i)*x**(2*i+1)/factorial(2*i+1)
+        return s
+    else:
+        print(f"{n} is not an integer.")   
+
+def cos(n,x=3.14):
+    s=0
+    if numval(n)==-1:
+        for i in range(n):
+            s+=1-(-1**i)*x**(2*i)/factorial(2*i)
+        return s
+    else:
+        print(f"{n} is not an integer.")   
+
+def sinh(n,x=3.14):
+    if numval(n)==-1:
+        for i in range(n):
+            s+=x+x**(2*i+1)/factorial(2*i+1)
+        return s
+    else:
+        print(f"{n} is not an integer.")   
+
+
+def cosh(n,x=3.14):
+    if numval(n)==-1:
+        for i in range(n):
+            s+=1+x**(2*i)/factorial(2*i)
+        return s
+    else:
+        print(f"{n} is not an integer.")   
