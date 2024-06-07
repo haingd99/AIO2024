@@ -13,7 +13,7 @@ greater than zero’ và thoát hàm hoặc dừng chương trình
 '''
 
 import sys
-from utils  import numval, precision, recall, f1_score
+from zutils  import numval, precision, recall, f1_score
 
 if __name__=="__main__":
   

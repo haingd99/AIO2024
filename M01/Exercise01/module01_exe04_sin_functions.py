@@ -1,5 +1,5 @@
 import sys
-from utils import numval, sin, cos, sinh, cosh
+from zutils import numval, sin, cos, sinh, cosh
 
 
 if __name__=="__main__":

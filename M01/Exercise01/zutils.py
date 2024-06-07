@@ -168,3 +168,20 @@ def cosh(x,n):
         return s
     else:
         print(f"{n} is not an integer.")   
+
+
+def MDNRE(y,y_hat,n=2,p=1):
+    """
+    Calculate Mean Difference and Root Error
+    input:
+        y: target
+        y_hat: predict
+        m: number of iterations
+        n: n_th root        
+        p: degree of los function
+    """
+    y_root_n=y**(1/n)
+    y_hat_root_n = y_hat**(1/n)
+    loss = (y_root_n - y_hat_root_n)**p
+    return loss
+

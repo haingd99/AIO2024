@@ -17,7 +17,7 @@ nhập ’belu’ thì print ’belu is not supported’)
 •α = 0.01
 '''
 
-from utils import sigmoid, relu, elu, numval
+from zutils import sigmoid, relu, elu, numval
 import sys 
 
 if __name__=="__main__":

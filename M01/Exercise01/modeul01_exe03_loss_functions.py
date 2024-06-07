@@ -27,7 +27,7 @@ bước này để các bạn không cần check tên hợp lệ)
 •Dùng abs() để tính trị tuyệt đối ví dụ abs(-3) sẽ trả về 3
 •Dùng math.sqrt() để tính căn bậc 2
 '''
-from utils import MAE, MSE,RMSE, numval
+from zutils import MAE, MSE,RMSE, numval
 import sys
 
 if __name__=="__main__":
