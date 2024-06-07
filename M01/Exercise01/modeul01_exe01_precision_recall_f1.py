@@ -42,7 +42,10 @@ if __name__=="__main__":
         sys.exit()
 
     pre=precision(int(tp),int(fp))
-    rec=recall(int(tp),int(fn)) 
-    print(f"Precision: {pre}")
-    print(f"Recall: {rec}")
-    print(f"F1 score: {f1_score(precision=pre,recall=rec)}")
+    rec=recall(int(tp),int(fn))
+    f1=f1_score(precision=pre,recall=rec) 
+
+    assert round(f1_score(precision=pre,recall=rec), 2) == 0.33
+    print(f"Precision: {round(pre,2)}")
+    print(f"Recall: {round(rec,2)}")
+    print(f"F1 score: {round(f1,2)}")

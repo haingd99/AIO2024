@@ -1,5 +1,5 @@
-from zutils import factorial, MDNRE
-
+from zutils import SQE,ABE, factorial, MDNRE, is_number, sigmoid, relu, elu, calc_activation_func
+from zutils import cos, sin, cosh, sinh
 
 
 import math
@@ -33,4 +33,49 @@ import math
 # print(math.cos(math.pi/10))
 
 
-print(MDNRE(0.6,0.1))
+# print(MDNRE(0.6,0.1))
+
+# assert is_number(3) == 1
+# assert is_number('-2a') == 0.0
+# print(is_number(1))
+# print(is_number('n'))
+
+# print(is_number(3))
+# print(round(sigmoid(3), 2))
+# assert round(sigmoid(3), 2) == 0.95
+# print(round(sigmoid(2), 2))
+
+
+
+# assert round(elu(1,1)) == 1
+# print(round(elu(-1,0.01), 2))
+
+# assert calc_activation_func(x = 1.0,act_name='relu') == 1
+# print(round(calc_activation_func(x = 3.0, act_name='sigmoid'), 2))
+
+
+# assert round(sigmoid(3),2)==0.95
+# print(round(sigmoid(2),2))
+
+
+# y = 1
+# y_hat = 6
+# assert ABE(y, y_hat)==5
+# y = 2
+# y_hat = 9
+# print(ABE(y, y_hat))
+
+
+# assert SQE(4, 2) == 4
+# print(SQE(2, 1))
+
+# assert round(cos(x=1, n=10), 2) ==0.54
+# print(round(cos(x=3.14, n=10), 2))
+
+
+# assert round(sin(x=1, n=10), 4) ==0.8415
+# print(round(sin(x=3.14, n=10), 4))
+# assert round(sinh(x=1, n=10), 2) ==1.18
+# print(round(sinh(x=3.14, n=10), 2))
+assert round(cosh(x=1, n=10), 2) ==1.54
+print(round(cosh(x=3.14, n=10), 2))                            

@@ -40,19 +40,18 @@ if __name__=="__main__":
             '''
             if func == elu --> checking x and if x <0 then input alpha --> checking the alpha --> invalid: exit, else calculate elu.
             '''
-            if float(x)<0:
+            if float(x)<=0:
                 alpha=input(f"Input alpha for {func}:")
                 if numval(alpha)==2:
                     # validation input of alpha, alpha must be number. If alpha is not valid, exit.
                     print(f"Alpha must be a number.")
                     sys.exit()
                 else:
-                    e=elu(alpha=float(alpha),x=float(x))
+                    e=elu(x=float(x),alpha=float(alpha))
                     print(f"{func}: f({e})")
             else:
-                # x>0 then set alpha==1
-                alpha=1
-                e=elu(alpha=float(alpha),x=float(x))
+                # x>0 then set alpha==1                
+                e=elu(x=float(x))
                 print(f"{func}: f({e})")
         else: 
             if func.lower()=="relu":

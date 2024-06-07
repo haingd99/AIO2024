@@ -44,12 +44,12 @@ def numval(input):
         
 
 def sigmoid(x):
-    return 1/(1+exp(x))
+    return 1/(1+exp(-x))
 
 def relu(x):
     return x if x>0 else 0 
 
-def elu(alpha,x):
+def elu(x, alpha=1.0):
     return x if x>0 else alpha*(exp(x)-1)
 
 def MAE(n):
@@ -100,6 +100,13 @@ def RMSE(n):
         loss=(target-y_hat)**2/n
         losses=+loss
     return y_hats, targets, sqrt(losses)
+
+def ABE(y, y_hat): # Absolute error
+    return abs(y-y_hat)
+
+
+def SQE(y, y_hat): # Square error
+    return (y-y_hat)**2
 
 
 def factorial(n):
@@ -185,3 +192,18 @@ def MDNRE(y,y_hat,n=2,p=1):
     loss = (y_root_n - y_hat_root_n)**p
     return loss
 
+def is_number(n):
+    try:
+        float(n)
+        return True
+    except ValueError as ve:
+        return False
+
+
+def calc_activation_func(x,act_name):
+    if act_name=="relu":
+        return relu(x)
+    elif act_name=="sigmoid":
+        return sigmoid(x)
+    elif act_name=="elu":
+        return elu(x)
