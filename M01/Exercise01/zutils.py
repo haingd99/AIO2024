@@ -58,16 +58,16 @@ def MAE(n):
         print(f"n must be an integer or positive number.")
         sys.exit()
 
-    targets=[]
-    y_hats=[]
-    losses=0
+    targets = []
+    y_hats = []
+    losses = 0
     for i in range(n):
-        target=random.uniform(0,10)
-        y_hat=random.uniform(0,10)
+        target = random.uniform(0,10)
+        y_hat = random.uniform(0,10)
         targets.append(target)
         y_hats.append(y_hat)
-        loss=abs(target-y_hat)/n
-        losses+=loss
+        loss=abs(target - y_hat) / n
+        losses += loss
     return y_hats, targets, losses
 
 def MSE(n):
