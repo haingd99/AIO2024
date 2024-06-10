@@ -4,6 +4,7 @@ The private functions will be built on seperate program.
 '''
 
 from math import exp, sqrt
+import math
 
 from numpy import random
 import sys
@@ -73,40 +74,45 @@ def MSE(n):
     if numval(n)!=-1:
         print(f"n must be an integer or positive number.")
         sys.exit()
-    targets=[]
-    y_hats=[]
-    losses=0
+
+    targets = []
+    y_hats = []
+    losses = 0
+
     for i in range(n):
-        target=random.uniform(0,10)
-        y_hat=random.uniform(0,10)
+        target = random.uniform(0, 10)
+        y_hat = random.uniform(0, 10)
         targets.append(target)
         y_hats.append(y_hat)
-        loss=(target-y_hat)**2/n
-        losses+=loss
+        loss = (target - y_hat) ** 2 / n
+        losses += loss
+
     return y_hats, targets, losses
 
 def RMSE(n):
     if numval(n)!=-1:
         print(f"n must be an integer or positive number.")
         sys.exit()
-    targets=[]
-    y_hats=[]
-    losses=0
+
+    targets = []
+    y_hats = []
+    losses = 0
+
     for i in range(n):
-        target=random.uniform(0,10)
-        y_hat=random.uniform(0,10)
+        target = random.uniform(0,10)
+        y_hat = random.uniform(0,10)
         targets.append(target)
         y_hats.append(y_hat)
-        loss=(target-y_hat)**2/n
-        losses=+loss
+        loss = (target - y_hat) **2 / n
+        losses =+ loss
     return y_hats, targets, sqrt(losses)
 
 def ABE(y, y_hat): # Absolute error
-    return abs(y-y_hat)
+    return abs(y - y_hat)
 
 
 def SQE(y, y_hat): # Square error
-    return (y-y_hat)**2
+    return (y - y_hat) ** 2
 
 
 def factorial(n):
@@ -125,39 +131,40 @@ def factorial(n):
 
 
 def sin(n,x=3.14):
-    s=0
-    if numval(n)==-1:
+    s = 0
+    if numval(n) == -1:
         for i in range(int(n)):
-            coe = (-1)**i
-            num = x**(2*i+1)
-            dem = factorial(2*i+1)
-            term = coe*(num/dem)
+            coe = (-1) ** i
+            num = x ** (2 * i + 1)
+            dem = factorial(2 * i + 1)
+            term = coe * (num / dem)
             s += term
         return s
     else:
         print(f"{n} is not an integer.")   
 
-def cos(x,n):
-    s=0
-    if numval(n)==-1:
+def cos(x, n):
+    s = 0
+    if numval(n) == -1:
         for i in range(int(n)):
-            coe = (-1)**i
-            num = x**(2*i)
-            dem = factorial(2*i)
-            term = coe*(num/dem)
+            coe = (-1) ** i
+            num = x ** (2 * i)
+            dem = factorial(2 * i)
+            term = coe * (num / dem)
             s += term
 
         return s
     else:
-        print(f"{n} is not an integer.")   
+        print(f"{n} is not an integer or non-negative number.")
+        sys.exit()
 
 def sinh(x,n):
     s=0
     if numval(n)==-1:
         for i in range(int(n)):
-            num = x**(2*i+1)
-            dem = factorial(2*i+1)
-            term = num/dem
+            num = x ** (2 * i + 1)
+            dem = factorial(2 * i + 1)
+            term = num / dem
             s += term
         return s
     else:
@@ -168,9 +175,9 @@ def cosh(x,n):
     s=0
     if numval(n)==-1:
         for i in range(int(n)):
-            num = x**(2*i)
-            dem = factorial(2*i)
-            term = num/dem
+            num = x ** (2 * i)
+            dem = factorial(2 * i)
+            term = num / dem
             s += term
         return s
     else:
@@ -187,9 +194,9 @@ def MDNRE(y,y_hat,n=2,p=1):
         n: n_th root        
         p: degree of los function
     """
-    y_root_n=y**(1/n)
-    y_hat_root_n = y_hat**(1/n)
-    loss = (y_root_n - y_hat_root_n)**p
+    y_root_n = y ** (1 / n)
+    y_hat_root_n = y_hat ** (1 / n)
+    loss = (y_root_n - y_hat_root_n) ** p
     return loss
 
 def is_number(n):
@@ -200,10 +207,10 @@ def is_number(n):
         return False
 
 
-def calc_activation_func(x,act_name):
-    if act_name=="relu":
+def calc_activation_func(x, act_name):
+    if act_name == "relu":
         return relu(x)
-    elif act_name=="sigmoid":
+    elif act_name == "sigmoid":
         return sigmoid(x)
-    elif act_name=="elu":
+    elif act_name == "elu":
         return elu(x)
