@@ -100,11 +100,5 @@ def levenshtein_distance(s1, s2):
     # Return the Levenshtein distance (value at the bottom-right corner of the matrix)
     return distance_matrix[len(s1)][len(s2)]
 
-# Example usage:
-s1 = "kitten"
-s2 = "sitting"
-distance = levenshtein_distance(s1, s2)
-print(f"The Levenshtein distance between '{s1}' and '{s2}' is {distance}.")
-
 
     
