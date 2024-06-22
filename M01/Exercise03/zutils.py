@@ -90,7 +90,7 @@ class Ward:
         for p in self.people:
             print(p.describe())
 
-    def count_docter(self):
+    def count_doctor(self):
         return sum(isinstance(person, Doctor) for person in self.people)
     
     def sort_age(self):
@@ -105,3 +105,88 @@ class Ward:
         
         else: 
             return f"None teacher(s) found on the {self.ward_name}"
+
+
+class Stack:
+    '''
+    • initialization method nhận một input "capacity": dùng để khởi tạo stack với capacity là số lượng element mà stack có thể chứa
+    • .is_empty(): kiểm tra stack có đang rỗng
+    • .is_full(): kiểm tra stack đã full chưa
+    • .pop(): loại bỏ top element và trả về giá trị đó
+    • .push(value) add thêm value vào trong stack
+    • .top() lấy giá trị top element hiện tại của stack, nhưng không loại bỏ giá trị đó
+    '''
+
+    def __init__(self, capacity) -> None:
+        self.capacity = capacity
+        self.stack = []
+
+    def is_empty(self):
+        return True if len(self.stack) == 0 else False
+    
+    def is_full(self):
+        return True if len(self.stack) >= self.capacity else False 
+    
+    def pop(self):
+        if self.is_empty():
+            print("The stack is empty.")
+        else:
+            return self.stack.pop()
+        
+    def push(self,value):
+        if self.is_full():
+            print("The stack is full.")
+        else:
+            return self.stack.append(value)
+    
+    def top(self):
+        if self.is_empty():
+            print("The stack is empty.")
+        else:
+            return self.stack[-1]
+
+    def describe(self):
+        print(self.stack)
+
+
+
+class Queue:
+    '''
+    Thực hiện xây dựng class Queue với các chức năng (method) sau đây
+    • initialization method nhận một input "capacity": dùng để khởi tạo queue với capacity là số lượng element mà queue có thể chứa
+    • .is_empty(): kiểm tra queue có đang rỗng
+    • .is_full(): kiểm tra queue đã full chưa
+    • .dequeue(): loại bỏ first element và trả về giá trị đó
+    • .enqueue(value) add thêm value vào trong queue
+    • .front() lấy giá trị first element hiện tại của queue, nhưng không loại bỏ giá trị đó
+    '''
+
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.queue = []
+
+    def is_empty(self):
+        return True if len(self.queue) == 0 else False
+    
+    def is_full(self):
+        return True if len(self.queue) >= self.capacity else False 
+    
+    def dequeue(self, idx=0):
+        if self.is_empty():
+            print("The queue is empty.") 
+        else:
+            element = self.queue.pop(idx)  
+            print(element)
+    
+    def enqueue(self, value):
+        if self.is_full():
+            print("The queue is full.")
+        else:
+            return self.queue.append(value) 
+            
+    
+    def front(self):
+        return self.queue[0]
+    
+    def describe(self):
+        print(self.queue)
