@@ -8,7 +8,7 @@ if 'userinput' not in st.session_state:
 def main () :
     st . title (" Word Correction using Levenshtein Distance ")
     word = st . text_input ('Word :', key="userinput")
-    vocabs = load_vocab('./data/vocab.txt')
+    vocabs = load_vocab('F:/AIO/AIO2024/M01/Exercise04/data/vocab.txt')
     sorted_distences = dict()
     
     if st . button (" Compute ") :
